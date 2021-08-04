@@ -7,9 +7,32 @@ use App\Models\Student;
 
 class StudentController extends Controller
 {
-    public function index() {
-        $students = Student::all();
-        return view('students.index', ['students' => $students]);
+    /**
+     * Page for views all student's compound
+     */
+    public function viewCompound(){
+        return view('students.compound');
     }
+
+    /**
+     * Page for submitting student's merit
+     */
+    public function viewMerit(){
+        return view('students.merit');
+    }
+
+    // /**
+    //  * Pay compound function
+    //  */
+    // public function payCompound(){
+    //     return 0;
+    // }
+
+    // /**
+    //  * Submit merit function
+    //  */
+    // public function submitMerit(){
+    //     return 0;
+    // }
 
 }

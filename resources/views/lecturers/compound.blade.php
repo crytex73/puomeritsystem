@@ -13,21 +13,13 @@
         <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
             <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Dashboard
+                Lectuer's Compound page
             </header>
 
             <div class="w-full p-6">
                 <p class="text-gray-700">
-                    Hi, welcome back!
+                    ...
                 </p>
-                <p class="text-gray-700 my-4">
-                    Pages : 
-                </p>
-                <ul>
-                    <li class="my-1">* <a href="{{ route('student.viewCompound') }}">Student's View Compound</a></li>
-                    <li class="my-1">* <a href="{{ route('student.viewMerit') }}">Student's View Merit</a></li>
-                    <li class="my-1">* <a href="{{ route('lecturer.viewCompound') }}">Lecturer's View Compound</a></li>
-                </ul>
             </div>
         </section>
     </div>

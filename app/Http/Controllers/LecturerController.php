@@ -6,8 +6,19 @@ use Illuminate\Http\Request;
 
 class LecturerController extends Controller
 {
-    public function index() {
-        return view('lecturers.index');
+    /**
+     * Page for views all student's compound
+     */
+    public function viewCompound(){
+        return view('lecturers.compound');
     }
+
+    // /**
+    //  * Pay compound function
+    //  */
+    // public function payCompound(){
+    //     return 0;
+    // }
+
 }
  

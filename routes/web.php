@@ -15,16 +15,25 @@ use App\Http\Controllers\LecturerController;
 |
 */
 
+
+/** Static Homepage route */
 Route::get('/', function () {
     return view('welcome');
 });
 
-
+/** Auth Routes */
 Auth::routes();
 
-Route::get('/students', [StudentController::class, 'index']);
-
-Route::get('/lecturers', [LecturerController::class, 'index']);
-
+/** Main Dashboard Route */
+// Retrieve data based on role of the user and that specific user's data
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/** Student-only Routes */
+Route::get('/student/compound', [StudentController::class, 'viewCompound'])->name('student.viewCompound');
+// Route::post('/student/compound/pay', [StudentController::class, 'payCompound']);
+Route::get('/student/merit', [StudentController::class, 'viewMerit'])->name('student.viewMerit');
+// Route::post('/student/merit/new', [StudentController::class, 'submitMerit']);
+
+// /** Lecturer-only Routes */
+Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->name('lecturer.viewCompound');
+// Route::post('/lecturer/compound/new', [LecturerController::class, 'submitCompound']);
