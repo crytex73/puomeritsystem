@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Students</h1>
+    <ul>
+        @foreach($students as $student)
+            <li>
+                fullname: {{  $student->fullname  }}, id: {{  $student->id  }}
+            </li>
+        @endforeach  
+    </ul>
 </body>
 </html>

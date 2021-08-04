@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Lecturer;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -64,10 +66,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'is_student' => $data['roleopt'] == 'student' ? true : false,
+            'is_lecturer' => $data['roleopt'] == 'lecturer' ? true : false,
         ]);
+
+        if ($data['roleopt'] == 'student'){
+            Student::create([
+                'fullname' => $data['name'],
+                'course' => '',
+                'matric_number' => '',
+                'merit' => '',
+                'user_id' => $user->id,
+            ]);
+        }elseif ($data['roleopt'] == 'lecturer'){
+            Lecturer::create([
+                'fullname' => $data['name'],
+                'matric_number' => '',
+                'user_id' => $user->id,
+            ]);
+        }
+        return $user;
+
     }
 }

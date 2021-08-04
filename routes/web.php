@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Student;
-use App\Http\Controllers\Lecturer;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\LecturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +22,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/students', [Student::class, 'stud']);
+Route::get('/students', [StudentController::class, 'index']);
 
-Route::get('/lecturers', [Lecturer::class, 'lect']);
+Route::get('/lecturers', [LecturerController::class, 'index']);
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
