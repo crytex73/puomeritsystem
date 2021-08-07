@@ -20,10 +20,22 @@
         <header class="bg-blue-900 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                    <a href="{{ url('/home') }}" class="text-lg font-semibold text-gray-100 no-underline">
                         {{ config('app.name', 'PUO Merit System') }}
                     </a>
                 </div>
+                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                    <!-- Student Routes -->
+                    @if (Auth::user() && Auth::user()->is_student)
+                    <a class="no-underline hover:underline" href="{{ route('student.viewCompound') }}">Compounds</a>
+                    <a class="no-underline hover:underline" href="{{ route('student.viewMerit') }}">Submit Merit</a>
+
+                    <!-- Lecturer Routes -->
+                    @elseif (Auth::user() && Auth::user()->is_lecturer)
+                    <a class="no-underline hover:underline" href="{{ route('lecturer.viewCompound') }}">Submit Compound</a>
+                    <a class="no-underline hover:underline" href="{{ route('lecturer.newCompound') }}">View Compound</a>
+                    @endif
+                </nav>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
                     @guest
                         <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
