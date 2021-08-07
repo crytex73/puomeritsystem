@@ -13,10 +13,17 @@ class LecturerController extends Controller
         return view('lecturers.compound');
     }
 
+    /**
+     * Page to start submit new compound
+     */
+    public function newCompound(){
+        return view('lecturers.newcompound');
+    }
+
     // /**
-    //  * Pay compound function
+    //  * Submit new compound function
     //  */
-    // public function payCompound(){
+    // public function submitCompound(){
     //     return 0;
     // }
 

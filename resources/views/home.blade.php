@@ -27,6 +27,7 @@
                     <li class="my-1">* <a href="{{ route('student.viewCompound') }}">Student's View Compound</a></li>
                     <li class="my-1">* <a href="{{ route('student.viewMerit') }}">Student's View Merit</a></li>
                     <li class="my-1">* <a href="{{ route('lecturer.viewCompound') }}">Lecturer's View Compound</a></li>
+                    <li class="my-1">* <a href="{{ route('lecturer.newCompound') }}">Lecturer's New Compound</a></li>
                 </ul>
             </div>
         </section>
