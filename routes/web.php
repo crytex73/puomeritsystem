@@ -29,11 +29,11 @@ Auth::routes();
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /** Student-only Routes */
-Route::get('/student/compound', [StudentController::class, 'viewCompound'])->name('student.viewCompound');
-// Route::post('/student/compound/pay', [StudentController::class, 'payCompound']);
-Route::get('/student/merit', [StudentController::class, 'viewMerit'])->name('student.viewMerit');
-// Route::post('/student/merit/new', [StudentController::class, 'submitMerit']);
+Route::get('/student/compound', [StudentController::class, 'viewCompound'])->name('student.viewCompound')->middleware('role:student');
+// Route::post('/student/compound/pay', [StudentController::class, 'payCompound'])->middleware('role:student');
+Route::get('/student/merit', [StudentController::class, 'viewMerit'])->name('student.viewMerit')->middleware('role:student');
+// Route::post('/student/merit/new', [StudentController::class, 'submitMerit'])->middleware('role:student');
 
 // /** Lecturer-only Routes */
-Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->name('lecturer.viewCompound');
-// Route::post('/lecturer/compound/new', [LecturerController::class, 'submitCompound']);
+Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->name('lecturer.viewCompound')->middleware('role:lecturer');
+// Route::post('/lecturer/compound/new', [LecturerController::class, 'submitCompound'])->middleware('role:lecturer');
