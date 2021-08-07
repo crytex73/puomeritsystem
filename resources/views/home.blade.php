@@ -16,10 +16,21 @@
                 Dashboard
             </header>
 
-            <div class="w-full p-6">
+            <div class="w-full pt-10 pl-10 pr-10 pb-32">
                 <p class="text-gray-700">
                     Hi, welcome back!
                 </p>
+                <div class="grid grid-cols-3 gap-4 mt-10">
+                    <div class="border rounded border-black-500 border-opacity-100 h-52">
+                        1
+                    </div>
+                    <div class="border rounded border-black-500 border-opacity-100 h-52">
+                        1
+                    </div>
+                    <div class="border rounded border-black-500 border-opacity-100 h-52">
+                        1
+                    </div>
+                </div>
             </div>
         </section>
     </div>
