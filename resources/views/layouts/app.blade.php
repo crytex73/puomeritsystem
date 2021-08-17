@@ -14,8 +14,179 @@
     
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/css/bootstrap.css') }}">
+    
+    <link rel="stylesheet" href="{{ asset('vendor/modules/iconly/bold.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('vendor/modules/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/modules/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('vendor/images/favicon.svg') }}" type="image/x-icon">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="{{ url('/home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo" srcset=""></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+
+                        <li class="sidebar-item 
+                            {{ Request::path() ==  'home' ? 'active' : ''  }}">
+                            <a href="{{ url('/home') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+
+                        <!-- Student Routes -->
+                        @if (Auth::user() && Auth::user()->is_student)
+                        <li class="sidebar-item
+                            {{ Request::path() ==  'student/compound' ? 'active' : ''  }}">
+                            <a href="{{ route('student.viewCompound') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Compounds</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item 
+                            {{ Request::path() ==  'student/merit' ? 'active' : ''  }}">
+                            <a href="{{ route('student.viewMerit') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Submit Merit</span>
+                            </a>
+                        </li>
+
+                        <!-- Lecturer Routes -->
+                        @elseif (Auth::user() && Auth::user()->is_lecturer)
+                        <li class="sidebar-item 
+                            {{ Request::path() ==  'lecturer/compound/new' ? 'active' : ''  }}">
+                            <a href="{{ route('lecturer.newCompound') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Submit Compound</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item 
+                        {{ Request::path() ==  'lecturer/compound' ? 'active' : ''  }}"">
+                            <a href="{{ route('lecturer.viewCompound') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>View Compounds</span>
+                            </a>
+                        </li>
+                        @endif
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Components</span>
+                            </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="component-alert.html">Alert</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-badge.html">Badge</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-breadcrumb.html">Breadcrumb</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-button.html">Button</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-card.html">Card</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-carousel.html">Carousel</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-dropdown.html">Dropdown</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-list-group.html">List Group</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-modal.html">Modal</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-navs.html">Navs</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-pagination.html">Pagination</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-progress.html">Progress</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-spinner.html">Spinner</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="component-tooltip.html">Tooltip</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <ul class="menu">
+                        <li class="sidebar-title">Settings</li>
+
+                        <li class="sidebar-item ">
+                            <a href="{{ route('logout') }}" class='sidebar-link'
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Log Out</span>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            </div>
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            @yield('content')
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy; PUO Merit System</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="{{ asset('vendor/modules/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('vendor/js/bootstrap.bundle.min.js') }}"></script>
+
+    <script src="{{ asset('vendor/modules/apexcharts/apexcharts.js') }}"></script>
+    <script src="{{ asset('vendor/js/pages/dashboard.js') }}"></script>
+
+    <script src="{{ asset('vendor/js/main.js') }}"></script>
+</body>
+
+
+{{-- <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="bg-blue-900 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
@@ -59,5 +230,7 @@
 
         @yield('content')
     </div>
-</body>
+</body> --}}
+
+
 </html>

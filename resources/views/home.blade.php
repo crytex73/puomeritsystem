@@ -1,38 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-6">
-
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Dashboard
-            </header>
-
-            <div class="w-full pt-10 pl-10 pr-10 pb-32">
-                <p class="text-gray-700">
-                    Hi, welcome back!
-                </p>
-                <div class="grid grid-cols-3 gap-4 mt-10">
-                    <div class="border rounded border-black-500 border-opacity-100 h-52">
-                        1
+<div class="page-heading">
+    <h3>My Dashboard</h3>
+</div>
+<div class="page-content">
+    <section class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="stats-icon purple">
+                                        <i class="iconly-boldShow"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted font-semibold">Score</h6>
+                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="border rounded border-black-500 border-opacity-100 h-52">
-                        1
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="stats-icon blue">
+                                        <i class="iconly-boldProfile"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted font-semibold">Score</h6>
+                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="border rounded border-black-500 border-opacity-100 h-52">
-                        1
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body px-3 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="stats-icon green">
+                                        <i class="iconly-boldAdd-User"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <h6 class="text-muted font-semibold">Score</h6>
+                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
-</main>
+        </div>
+    </section>
+</div>
 @endsection
