@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/modules/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/pages/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom_style.css') }}">
 </head>
 
 <body>
@@ -19,7 +20,9 @@
     <div class="col-lg-5 col-12">
         <div id="auth-left">
             <div class="auth-logo">
-                <a href="{{ url('/home') }}"><img src="{{ asset('img/logos.png') }}" alt="Logo"></a>
+                <a href="{{ url('/home') }}">
+                    <img src="{{ asset('img/logos.png') }}" alt="Logo" height="100">
+                </a>
             </div>
             <h1 class="auth-title">Log in.</h1>
             <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>

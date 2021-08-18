@@ -1,0 +1,21 @@
+#auth #auth-left .auth-logo {
+    margin-bottom: 2rem;
+    height: 150px;
+}
+#auth #auth-left .auth-logo img {
+    height: 100%;
+}
+
+#sidebar .sidebar-wrapper .sidebar-header {
+    padding: 2rem 2rem 0rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#sidebar .sidebar-wrapper .sidebar-header .logo {
+    height: 100px;
+}
+
+#sidebar .sidebar-wrapper .sidebar-header .logo img {
+    height: 100%;
+}

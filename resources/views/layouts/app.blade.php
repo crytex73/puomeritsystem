@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/modules/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/modules/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom_style.css') }}">
     <link rel="shortcut icon" href="{{ asset('vendor/images/favicon.svg') }}" type="image/x-icon">
 </head>
 <body>
@@ -33,7 +34,9 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="{{ url('/home') }}"><img src="{{ asset('img/logo.png') }}" alt="Logo" srcset=""></a>
+                            <a href="{{ url('/home') }}">
+                                <img src="{{ asset('img/logos.png') }}" alt="Logo" srcset="">
+                            </a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
