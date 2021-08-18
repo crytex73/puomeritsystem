@@ -21,16 +21,16 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Simple Datatable
+                Compound Datatable
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>City</th>
+                            <th>Bil</th>
+                            <th>Compound</th>
+                            <th>Value(RM)</th>
+                            <th>Date Of Compound</th>
                             <th>Status</th>
                         </tr>
                     </thead>
