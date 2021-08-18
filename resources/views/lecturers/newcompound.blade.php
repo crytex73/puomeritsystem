@@ -19,93 +19,88 @@
             </div>
         </div>
     </div>
-    <section class="section">
-        <div class="card-body">
-            <form class="form form-vertical">
-                <div class="form-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group has-icon-left">
-                                <label for="first-name-icon">Student Matric Number</label>
-                                <div class="position-relative">
-                                    <input type="text" class="form-control" placeholder="e.g. : 01DDT19F1XXX"
-                                        id="first-name-icon">
-                                    <div class="form-control-icon">
-                                        <i class="bi bi-person"></i>
+
+    <section id="basic-horizontal-layouts">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Compound Form</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form class="form form-horizontal">
+                                <div class="form-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label>Student Matric Number</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="text" id="stud-matric-num" class="form-control"
+                                                name="fname" placeholder="01DDT19F1XXX">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Type Of Compound</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <select class="form-select" id="reason-select" onchange="compoundSelectionChange()">
+                                                <option disabled selected>-Select-</option>
+                                                @foreach ($compounds as $compound)
+                                                <option value="{{ $compound['ind'] }}">{{ $compound['compound_type'] }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Compound Value (RM)</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="number" id="compound-value" class="form-control"
+                                                name="contact" placeholder="0.00">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Merit Deduction</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input type="number" id="merit-deduction" class="form-control"
+                                                name="contact" placeholder="0">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Upload Compound File (Proof)</label>
+                                        </div>
+                                        <div class="col-md-8 form-group">
+                                            <input class="form-control" type="file" id="formFile">
+                                        </div>
+                                        <div class="col-sm-12 d-flex justify-content-end">
+                                            <button type="submit"
+                                                class="btn btn-primary me-1 mb-1">Submit</button>
+                                            <button type="reset"
+                                                class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <table class="table mb-0 table-lg">
-                            <thead>
-                                <tr>
-                                    <th>Type Of Summon</th>
-                                    <th>Value(RM)</th>
-                                    <th>Select</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-bold-500">Membuat Bising/Menganggu Kenteteraman</td>
-                                    <td>10</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="checkbox1" class="form-check-input" unchecked="">
-                                        </div>
-                                    </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">Berpakaian Tidak Sopan </td>
-                                    <td>50</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="checkbox2" class="form-check-input" unchecked="">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">Berambut Panjang</td>
-                                    <td>50</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="checkbox3" class="form-check-input" unchecked="">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">Membuang Sampah Merata</td>
-                                    <td>50</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="checkbox4" class="form-check-input" unchecked="">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500">Tidak Memakai Kad Pelajar</td>
-                                    <td>50</td>
-                                    <td>
-                                        <div class="checkbox">
-                                            <input type="checkbox" id="checkbox5" class="form-check-input" unchecked="">
-                                        </div>
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div class="col-12 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                            <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-
     </section>
 </div>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // $(document).ready(function(){
+    //     $("#stud-matric-num").val();
+    // });
+
+    var compounds = <?php echo json_encode($compounds); ?>;
+
+    function compoundSelectionChange(e) {
+        var indVal = parseInt(document.getElementById("reason-select").value)
+
+        document.getElementById("compound-value").value = compounds[indVal].compound_value
+        document.getElementById("merit-deduction").value = compounds[indVal].merit_deduction
+    }
+
+</script>

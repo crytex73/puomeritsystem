@@ -19,12 +19,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendor/css/bootstrap.css') }}">
     
+    <link rel="stylesheet" href="{{ asset('vendor/modules/toastify/toastify.css') }}">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('vendor/modules/iconly/bold.css') }}">
 
     <link rel="stylesheet" href="{{ asset('vendor/modules/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/modules/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom_style.css') }}">
+
     <link rel="shortcut icon" href="{{ asset('vendor/images/favicon.svg') }}" type="image/x-icon">
 </head>
 <body>
@@ -128,6 +133,7 @@
             </footer>
         </div>
     </div>
+    
     <script src="{{ asset('vendor/modules/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('vendor/js/bootstrap.bundle.min.js') }}"></script>
 
