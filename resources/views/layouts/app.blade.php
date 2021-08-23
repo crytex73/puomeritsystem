@@ -66,7 +66,7 @@
                             {{ Request::path() ==  'student/compound' ? 'active' : ''  }}">
                             <a href="{{ route('student.viewCompound') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
-                                <span>Compounds</span>
+                                <span>Summons</span>
                             </a>
                         </li>
                         <li class="sidebar-item 
@@ -83,7 +83,7 @@
                             {{ Request::path() ==  'lecturer/compound/new' ? 'active' : ''  }}">
                             <a href="{{ route('lecturer.newCompound') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
-                                <span>Submit Compound</span>
+                                <span>Submit Summons</span>
                             </a>
                         </li>
                         <li class="sidebar-item 
