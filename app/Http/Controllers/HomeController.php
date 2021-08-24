@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Compound;
+use App\Models\Lecturer;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user() && Auth::user()->is_lecturer){
+            $lectData = Lecturer::firstWhere('user_id', Auth::user()->id);
+            $compoundCounts = Compound::where('lecturer_id', $lectData->id)->count();
+            $settledCompoundCounts = Compound::where('lecturer_id', $lectData->id)->where('payment_status', true)->count();
+        }
+
+        return view('home', compact('compoundCounts', 'settledCompoundCounts'));
     }
 }
