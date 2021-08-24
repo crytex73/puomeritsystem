@@ -37,4 +37,4 @@ Route::get('/student/merit', [StudentController::class, 'viewMerit'])->name('stu
 // /** Lecturer-only Routes */
 Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->name('lecturer.viewCompound')->middleware('role:lecturer');
 Route::get('/lecturer/compound/new', [LecturerController::class, 'newCompound'])->name('lecturer.newCompound')->middleware('role:lecturer')->middleware('role:lecturer');
-// Route::post('/lecturer/compound/create', [LecturerController::class, 'submitCompound'])->middleware('role:lecturer');
+Route::post('/lecturer/compound/create', [LecturerController::class, 'submitCompound'])->name('lecturer.submitCompound')->middleware('role:lecturer');

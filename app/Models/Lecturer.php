@@ -14,4 +14,8 @@ class Lecturer extends Model
         'matric_number',
         'user_id',
     ];
+
+    // public function getUser($query){
+        
+    // }
 }

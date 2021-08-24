@@ -29,46 +29,48 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-horizontal">
+                            <form class="form form-horizontal" method="POST" action="{{ route('lecturer.submitCompound') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <label>Student Matric Number</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="text" id="stud-matric-num" class="form-control"
-                                                name="fname" placeholder="01DDT19F1XXX">
+                                            <input type="text" id="matric_num" class="form-control"
+                                                name="matric_num" placeholder="01DDT19F1XXX">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Type Of Compound</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <select class="form-select" id="reason-select" onchange="compoundSelectionChange()">
+                                            <select class="form-select" id="select_reason" name="select_reason" onchange="compoundSelectionChange()">
                                                 <option disabled selected>-Select-</option>
                                                 @foreach ($compounds as $compound)
                                                 <option value="{{ $compound['ind'] }}">{{ $compound['compound_type'] }}</option>
                                                 @endforeach
                                             </select>
+                                            <input type="hidden" id="comp_reason" name="comp_reason">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Compound Value (RM)</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="number" id="compound-value" class="form-control"
-                                                name="contact" placeholder="0.00">
+                                            <input type="number" id="comp_value" class="form-control"
+                                                name="comp_value" placeholder="0.00">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Merit Deduction</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input type="number" id="merit-deduction" class="form-control"
-                                                name="contact" placeholder="0">
+                                            <input type="number" id="merit_deduction" class="form-control"
+                                                name="merit_deduction" placeholder="0">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Upload Compound File (Proof)</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input class="form-control" type="file" id="formFile">
+                                            <input class="form-control" type="file" id="proof_file" name="proof_file">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit"
@@ -91,16 +93,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     // $(document).ready(function(){
-    //     $("#stud-matric-num").val();
+    //     $("#matric_num").val();
     // });
 
     var compounds = <?php echo json_encode($compounds); ?>;
 
     function compoundSelectionChange(e) {
-        var indVal = parseInt(document.getElementById("reason-select").value)
+        var indVal = parseInt(document.getElementById("select_reason").value)
 
-        document.getElementById("compound-value").value = compounds[indVal].compound_value
-        document.getElementById("merit-deduction").value = compounds[indVal].merit_deduction
+        document.getElementById("comp_reason").value = compounds[indVal].compound_type
+        document.getElementById("comp_value").value = compounds[indVal].compound_value
+        document.getElementById("merit_deduction").value = compounds[indVal].merit_deduction
     }
 
 </script>

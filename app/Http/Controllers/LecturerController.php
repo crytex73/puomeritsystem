@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Compound;
+use App\Models\Lecturer;
+use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
+
+use Carbon\Carbon;
 
 class LecturerController extends Controller
 {
@@ -10,7 +16,10 @@ class LecturerController extends Controller
      * Page for views all student's compound
      */
     public function viewCompound(){
-        return view('lecturers.compound');
+        $lectData = Lecturer::firstWhere('user_id', Auth::user()->id);
+        $compounds = Compound::firstWhere('lecturer_id', $lectData->id)->get();
+
+        return view('lecturers.compound', compact('compounds'));
     }
 
     /**
@@ -54,12 +63,37 @@ class LecturerController extends Controller
         return view('lecturers.newcompound', compact('compounds'));
     }
 
-    // /**
-    //  * Submit new compound function
-    //  */
-    // public function submitCompound(){
-    //     return 0;
-    // }
+    /**
+     * Submit new compound function
+     */
+    public function submitCompound(Request $request){
+        // Uploading file first
+        $request->validate([
+            'proof_file' => 'required|mimes:png,PNG,jpg,JPG,jpeg,JPEG|max:2048'
+        ]);
+        if($request->file()){
+            $fileName =  time().'_'.$request->file('proof_file')->getClientOriginalName();
+            $filePath = $request->file('proof_file')->storeAs('uploads', $fileName, 'public');
+        }
+
+        $lectData = Lecturer::firstWhere('user_id', Auth::user()->id);
+        $studData = Student::firstWhere('matric_number', intval($request->matric_num));
+
+        $compound = new Compound;
+        $compound->lecturer_id = $lectData->id;
+        $compound->student_id = $studData->id;
+        $compound->comp_value = $request->comp_value;
+        $compound->merit_deduction = $request->merit_deduction;
+        $compound->comp_reason = $request->comp_reason;
+        $compound->proof_file_url = $filePath? '/storage/' . $filePath : '';
+        $compound->invoice_file_url = '';
+        $compound->payment_status = false;
+        $compound->submission_date = Carbon::now();
+        $compound->save();        
+
+        // return view('lecturers.compound', ['newCompoundSubmitted' => true]);
+        return redirect()->route('lecturer.viewCompound', ['newCompoundSubmitted' => true]);
+    }
 
 }
  
