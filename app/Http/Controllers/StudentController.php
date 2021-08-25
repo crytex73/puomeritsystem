@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Student;
+use App\Models\Compound;
 
 class StudentController extends Controller
 {
@@ -11,7 +13,10 @@ class StudentController extends Controller
      * Page for views all student's compound
      */
     public function viewCompound(){
-        return view('students.compound');
+        $studData = Student::firstWhere('user_id', Auth::user()->id);
+        $compounds = Compound::firstWhere('student_id', $studData->id)->get();
+
+        return view('students.compound', compact('compounds'));
     }
 
     /**

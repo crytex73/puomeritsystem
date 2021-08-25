@@ -5,14 +5,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Summons </h3>
-                <p class="text-subtitle text-muted">List of my summons</p>
+                <h3>Compounds </h3>
+                <p class="text-subtitle text-muted">List of my compounds</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Summons</li>
+                        <li class="breadcrumb-item active" aria-current="page">Compounds</li>
                     </ol>
                 </nav>
             </div>
@@ -21,259 +21,116 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                Summons Datatable
+                Compounds Datatable
             </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>Bil</th>
-                            <th>Compound</th>
+                            <th>Compound Reason</th>
                             <th>Value(RM)</th>
                             <th>Date Of Compound</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($compounds as $key => $compound)
                         <tr>
-                            <td>Graiden</td>
-                            <td>vehicula.aliquet@semconsequat.co.uk</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $compound->comp_reason }}</td>
+                            <td>RM {{ number_format((float)$compound->comp_value, 2, '.', '') }}</td>
+                            <td>{{ $compound->submission_date }}</td>
                             <td>
-                                <span class="badge bg-success">Active</span>
+                                @if ($compound->payment_status == true)
+                                <span class="badge bg-success">Paid</span>
+                                @else
+                                <span class="badge bg-warning">Not Paid</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($compound->payment_status == false)
+                                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalPayView" onclick="viewCompound({{ json_encode($compound) }}, {{ json_encode(Request::root()) }})">Pay</button>
+                                @else
+                                <button class="btn btn-primary btn-sm disabled">Pay</button>
+                                @endif
                             </td>
                         </tr>
-                        <tr>
-                            <td>Dale</td>
-                            <td>fringilla.euismod.enim@quam.ca</td>
-                            <td>0500 527693</td>
-                            <td>New Quay</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Nathaniel</td>
-                            <td>mi.Duis@diam.edu</td>
-                            <td>(012165) 76278</td>
-                            <td>Grumo Appula</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Darius</td>
-                            <td>velit@nec.com</td>
-                            <td>0309 690 7871</td>
-                            <td>Ways</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Oleg</td>
-                            <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                            <td>0500 441046</td>
-                            <td>Rossignol</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kermit</td>
-                            <td>diam.Sed.diam@anteVivamusnon.org</td>
-                            <td>(01653) 27844</td>
-                            <td>Patna</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Jermaine</td>
-                            <td>sodales@nuncsit.org</td>
-                            <td>0800 528324</td>
-                            <td>Mold</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ferdinand</td>
-                            <td>gravida.molestie@tinciduntadipiscing.org</td>
-                            <td>(016977) 4107</td>
-                            <td>Marlborough</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kuame</td>
-                            <td>Quisque.purus@mauris.org</td>
-                            <td>(0151) 561 8896</td>
-                            <td>Tresigallo</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Deacon</td>
-                            <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                            <td>07740 599321</td>
-                            <td>Karapınar</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Channing</td>
-                            <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                            <td>0845 46 49</td>
-                            <td>Warrnambool</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Aladdin</td>
-                            <td>sem.ut@pellentesqueafacilisis.ca</td>
-                            <td>0800 1111</td>
-                            <td>Bothey</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Cruz</td>
-                            <td>non@quisturpisvitae.ca</td>
-                            <td>07624 944915</td>
-                            <td>Shikarpur</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Keegan</td>
-                            <td>molestie.dapibus@condimentumDonecat.edu</td>
-                            <td>0800 200103</td>
-                            <td>Assen</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Ray</td>
-                            <td>placerat.eget@sagittislobortis.edu</td>
-                            <td>(0112) 896 6829</td>
-                            <td>Hofors</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Maxwell</td>
-                            <td>diam@dapibus.org</td>
-                            <td>0334 836 4028</td>
-                            <td>Thane</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Carter</td>
-                            <td>urna.justo.faucibus@orci.com</td>
-                            <td>07079 826350</td>
-                            <td>Biez</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Stone</td>
-                            <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                            <td>0800 1111</td>
-                            <td>Olivar</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Berk</td>
-                            <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                            <td>(0101) 043 2822</td>
-                            <td>Sanquhar</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Philip</td>
-                            <td>turpis@euenimEtiam.org</td>
-                            <td>0500 571108</td>
-                            <td>Okara</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kibo</td>
-                            <td>feugiat@urnajustofaucibus.co.uk</td>
-                            <td>07624 682306</td>
-                            <td>La Cisterna</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Bruno</td>
-                            <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                            <td>07624 869434</td>
-                            <td>Rocca d"Arce</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Leonard</td>
-                            <td>blandit.enim.consequat@mollislectuspede.net</td>
-                            <td>0800 1111</td>
-                            <td>Lobbes</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Hamilton</td>
-                            <td>mauris@diam.org</td>
-                            <td>0800 256 8788</td>
-                            <td>Sanzeno</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Harding</td>
-                            <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                            <td>0800 1111</td>
-                            <td>Obaix</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Emmanuel</td>
-                            <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                            <td>(016977) 8208</td>
-                            <td>Saint-Remy-Geest</td>
-                            <td>
-                                <span class="badge bg-success">Active</span>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade text-left" id="modalPayView" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33"
+            aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+                <div class="modal-content">
+                    <form action="#">
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="mb-3">
+                                    <h3 class="modal-title text-center">Compound Overview</h3>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 offset-md-2 mb-2">
+                                        <span style="font-weight: bold;">Compound Reason</span>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <span id="modalCompReason"></span>
+                                    </div>
+                                    <div class="col-md-4 offset-md-2 mb-2">
+                                        <span style="font-weight: bold;">Compound Value</span>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <span id="modalCompValue"></span>
+                                    </div>
+                                    <div class="col-md-4 offset-md-2 mb-2">
+                                        <span style="font-weight: bold;">Date of Compound</span>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <span id="modalDateOfCompound"></span>
+                                    </div>
+                                    <div class="col-md-4 offset-md-2 mb-2">
+                                        <span style="font-weight: bold;">File of Evidence</span>
+                                    </div>
+                                    <div class="col-md-4 mb-2">
+                                        <a href="#" id="modalFileUrl" target="_blank">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Cancel</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary ml-2" data-bs-dismiss="modal">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Pay Now</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
     </section>
 </div>
 @endsection
+
+<script>
+    function viewCompound(_compound, _rootURL){
+        document.getElementById('modalCompReason').textContent = _compound.comp_reason
+        document.getElementById('modalCompValue').textContent = 'RM ' + (_compound.comp_value).toFixed(2)
+        document.getElementById('modalDateOfCompound').textContent = _compound.submission_date
+        if(_compound.proof_file_url && _compound.proof_file_url.trim() != '') 
+            document.getElementById('modalFileUrl').href = _rootURL + _compound.proof_file_url
+    }
+</script>
