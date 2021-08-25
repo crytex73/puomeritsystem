@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Compound;
 use App\Models\Lecturer;
 use App\Models\Student;
-use Illuminate\Support\Facades\Auth;
+use App\Mail\NewCompoundEmail;
 
 use Carbon\Carbon;
 
@@ -90,6 +92,15 @@ class LecturerController extends Controller
         $compound->payment_status = false;
         $compound->submission_date = Carbon::now();
         $compound->save();        
+
+        //send an email after save
+        $data = [
+            'student_name' => $studData->fullname,
+            'compound_reason' => $compound->comp_reason,
+            'compound_value' => 'RM' . number_format((float)$compound->comp_value, 2, '.', ''),
+            'lecturer_name' => $lectData->fullname
+        ];
+        Mail::to('whitegeng94@gmail.com')->send(new NewCompoundEmail($data));
 
         // return view('lecturers.compound', ['newCompoundSubmitted' => true]);
         return redirect()->route('lecturer.viewCompound', ['newCompoundSubmitted' => true]);
