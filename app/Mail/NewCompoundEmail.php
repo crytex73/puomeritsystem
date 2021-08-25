@@ -32,8 +32,8 @@ class NewCompoundEmail extends Mailable
     {
         {
             //from email credentials and data
-            $address = 'surffira@gmail.com';
-            $name = 'Surffira Lolz';
+            $address = config('mail.from.address');
+            $name = config('mail.from.name');
             $subject = '[PUOMeritSystem] You Got 1 Compound!';
     
             return $this->view('emails.newcompound')
