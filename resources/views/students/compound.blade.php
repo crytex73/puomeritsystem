@@ -109,10 +109,10 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Cancel</span>
                                     </button>
-                                    <button type="button" class="btn btn-primary ml-2" data-bs-dismiss="modal">
+                                    <a href="#" id="aSubmitPayment" type="button" class="btn btn-primary ml-2">
                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Pay Now</span>
-                                    </button>
+                                        <span class="d-none d-sm-block">Submit Payment</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -132,5 +132,6 @@
         document.getElementById('modalDateOfCompound').textContent = _compound.submission_date
         if(_compound.proof_file_url && _compound.proof_file_url.trim() != '') 
             document.getElementById('modalFileUrl').href = _rootURL + _compound.proof_file_url
+        document.getElementById('aSubmitPayment').href = _rootURL + '/checkout/paycompound/' + _compound.id
     }
 </script>
