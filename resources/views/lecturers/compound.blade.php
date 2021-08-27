@@ -1,27 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-6">
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Compounds </h3>
+                <p class="text-subtitle text-muted">List of my students' compounds</p>
 
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
+                @if (request()->get('newCompoundSubmitted') && request()->get('newCompoundSubmitted') == 1)
+                <span class="badge bg-light-success mb-2">New compound has been created successfully!</span>
+                @endif
             </div>
-        @endif
-
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Lectuer's View Compound page
-            </header>
-
-            <div class="w-full p-6">
-                <p class="text-gray-700">
-                    ...
-                </p>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Compounds</li>
+                    </ol>
+                </nav>
             </div>
-        </section>
+        </div>
     </div>
-</main>
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+                Compounds Datatable
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Bil</th>
+                            <th>Matric Number</th>
+                            <th>Compound Reason</th>
+                            <th>Value(RM)</th>
+                            <th>Date Of Compound</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($compounds as $key => $compound)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $compound->student->matric_number }}</td>
+                            <td>{{ $compound->comp_reason }}</td>
+                            <td>RM {{ number_format((float)$compound->comp_value, 2, '.', '') }}</td>
+                            <td>{{ $compound->submission_date }}</td>
+                            <td>
+                                @if ($compound->payment_status == true)
+                                <span class="badge bg-success">Paid</span>
+                                @else
+                                <span class="badge bg-warning">Not Paid</span>
+                                @endif
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</div>
 @endsection
