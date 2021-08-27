@@ -50,6 +50,7 @@
                       <div class="col-md-6 form-group">
                           <input type="number" id="price" class="form-control" name="price" value="{{ number_format((float)$compound->comp_value, 2, '.', '') }}" readonly>
                       </div>
+                      <input type="hidden" name="dataKey" id="dataKey" value="{{ $compound->id }}">
                     </div>
                     <div class="text-end">
                       <button type="submit" class="btn btn-primary">Pay Now</button>

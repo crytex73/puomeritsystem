@@ -13,6 +13,7 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "nesbot/carbon": "^2.52",
+        "spatie/laravel-stripe-webhooks": "^2.6",
         "stripe/stripe-php": "^7.94"
     },
     "require-dev": {

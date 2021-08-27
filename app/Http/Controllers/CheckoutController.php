@@ -45,6 +45,9 @@ class CheckoutController extends Controller
                'grabpay',
                'card',
             ],
+            'metadata' => [
+               'data_key' => $request->dataKey,
+            ],
             'mode' => 'payment',
             'success_url' => route('checkout.success'),
             'cancel_url' => route('checkout.cancel'),

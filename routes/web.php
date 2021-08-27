@@ -45,3 +45,6 @@ Route::get('/checkout/paycompound/{compoundid}', [CheckoutController::class, 'pa
 Route::post('/checkout/createsession', [CheckoutController::class, 'createCheckoutSession'])->name('checkout.createSession');
 Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
 Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
+
+// Stripe Webhooks Routes
+Route::stripeWebhooks('stripe-webhook');
