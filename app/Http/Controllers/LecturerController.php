@@ -89,7 +89,7 @@ class LecturerController extends Controller
         $compound->comp_value = $request->comp_value;
         $compound->merit_deduction = $request->merit_deduction;
         $compound->comp_reason = $request->comp_reason;
-        $compound->proof_file_url = $filepath?'/storage' . $filepath : '';
+        $compound->proof_file_url = $filepath?'/storage/' . $filepath : '';
         $compound->invoice_file_url = '';
         $compound->payment_status = false;
         $compound->submission_date = Carbon::now();
