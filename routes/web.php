@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,9 @@ Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->n
 Route::get('/lecturer/compound/new', [LecturerController::class, 'newCompound'])->name('lecturer.newCompound')->middleware('role:lecturer')->middleware('role:lecturer');
 // Route::post('/lecturer/compound/create', [LecturerController::class, 'submitCompound'])->middleware('role:lecturer');
 Route::post('/lecturer/compound/create', [LecturerController::class, 'submitCompound'])->name('lecturer.submitCompound')->middleware('role:lecturer');
+
+// Checkout Routes
+Route::get('/checkout/paycompound/{compoundid}', [CheckoutController::class, 'payCompound'])->name('checkout.payCompound')->middleware('role:student'); //this route specific for student only
+Route::post('/checkout/createsession', [CheckoutController::class, 'createCheckoutSession'])->name('checkout.createSession');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
