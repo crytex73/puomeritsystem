@@ -16,10 +16,10 @@ class CheckoutController extends Controller
     }
     //
     public function createCheckoutSession(Request $request){
-        \Stripe\Stripe::setApiKey('sk_test_51JTU8GLO5yddaoIucZsp6Bqnitra4gXlhAhuZLk0Co21hfnNocd71RERC0j5rpl6q5eEr99V0RvWHZnkxf2wK64O00WZZACsTJ'); //try dulu, nanti save dlm config (env).
+        Stripe::setApiKey('sk_test_51JTU8GLO5yddaoIucZsp6Bqnitra4gXlhAhuZLk0Co21hfnNocd71RERC0j5rpl6q5eEr99V0RvWHZnkxf2wK64O00WZZACsTJ'); //try dulu, nanti save dlm config (env).
         header('Content-Type: application/json');
 
-        $checkout_session = \Stripe\Checkout\Session::create([
+        $checkout_session = Session::create([
            'line_items' => [[
               'price_data' => [
                  'currency' => 'myr',
