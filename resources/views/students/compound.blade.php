@@ -127,6 +127,8 @@
 
 <script>
     function viewCompound(_compound, _rootURL){
+        console.log('compound: ',_compound)
+        console.log('root url: ',_rootURL)
         document.getElementById('modalCompReason').textContent = _compound.comp_reason
         document.getElementById('modalCompValue').textContent = 'RM ' + (_compound.comp_value).toFixed(2)
         document.getElementById('modalDateOfCompound').textContent = _compound.submission_date
