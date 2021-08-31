@@ -19,7 +19,7 @@
                                     </div>
                                 </div> --}}
                                 <div class="col-12 mx-auto text-center">
-                                    <h1 class="font-extrabold mb-3">{}</h1>
+                                    <h1 class="font-extrabold mb-3">{{ $merit }}</h1>
                                     <h3 class="text-muted font-semibold">My Merit Score</h3>
                                 </div>
                             </div>

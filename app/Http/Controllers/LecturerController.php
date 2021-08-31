@@ -94,6 +94,9 @@ class LecturerController extends Controller
         $compound->payment_status = false;
         $compound->submission_date = Carbon::now();
         $compound->save();
+
+        $studData->merit = $studData->merit - $compound->merit_deduction;
+        $studData->save();
         
         //email
         $data = [
