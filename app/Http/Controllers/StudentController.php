@@ -36,8 +36,15 @@ class StudentController extends Controller
     // /**
     //  * Submit merit function
     //  */
-    // public function submitMerit(){
-    //     return 0;
-    // }
+    public function submitMerit(Request $request){
+        $studData = Student::firstWhere('user_id', Auth::user()->id);
+
+        $studData->merit = $studData->merit + intVal($request->levelopt);
+        if ($studData->merit>100){
+            $studData->merit = 100;
+        }
+        $studData->save();
+        return redirect()->route('home');
+    }
 
 }

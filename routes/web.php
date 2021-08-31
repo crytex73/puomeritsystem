@@ -33,7 +33,8 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::get('/student/compound', [StudentController::class, 'viewCompound'])->name('student.viewCompound')->middleware('role:student');
 // Route::post('/student/compound/pay', [StudentController::class, 'payCompound'])->middleware('role:student');
 Route::get('/student/merit', [StudentController::class, 'viewMerit'])->name('student.viewMerit')->middleware('role:student');
-// Route::post('/student/merit/new', [StudentController::class, 'submitMerit'])->middleware('role:student');
+Route::post('/student/merit/new', [StudentController::class, 'submitMerit'])->name('student.submitMerit')->middleware('role:student');
+
 
 // /** Lecturer-only Routes */
 Route::get('/lecturer/compound', [LecturerController::class, 'viewCompound'])->name('lecturer.viewCompound')->middleware('role:lecturer');
