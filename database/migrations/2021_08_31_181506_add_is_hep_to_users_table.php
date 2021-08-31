@@ -14,7 +14,7 @@ class AddIsHepToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_hep');
+            $table->boolean('is_hep')->default(false);
         });
     }
 
