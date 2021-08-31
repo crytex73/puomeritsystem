@@ -85,6 +85,12 @@
                         Lecturer
                     </label>
                 </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="roleopt" id="hepopt" value="hep" required>
+                    <label class="form-check-label" for="hepopt">
+                        HEP
+                    </label>
+                </div>
 
                 <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Sign Up</button>
             </form>

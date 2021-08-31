@@ -72,6 +72,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'is_student' => $data['roleopt'] == 'student' ? true : false,
             'is_lecturer' => $data['roleopt'] == 'lecturer' ? true : false,
+            'is_hep' => $data['roleopt'] == 'hep' ? true : false,
         ]);
 
         if ($data['roleopt'] == 'student'){

@@ -32,13 +32,14 @@ class HomeController extends Controller
             $compoundCounts = Compound::where('lecturer_id', $lectData->id)->count();
             $settledCompoundCounts = Compound::where('lecturer_id', $lectData->id)->where('payment_status', true)->count();
             return view('home', compact('compoundCounts', 'settledCompoundCounts'));
-        }else {
+        }else if(Auth::user() && Auth::user()->is_student) {
             $studData = Student::firstWhere('user_id', Auth::user()->id);
             $merit = $studData->merit;
             $unsettledCompoundCounts = Compound::where('student_id', $studData->id)->where('payment_status', false)->count();
             $settledCompoundCounts = Compound::where('student_id', $studData->id)->where('payment_status', true)->count();
-            return view('home', compact('unsettledCompoundCounts', 'settledCompoundCounts', 'merit'));
-            
+            return view('home', compact('unsettledCompoundCounts', 'settledCompoundCounts', 'merit')); 
+        }else{
+            return view('home');
         }
         
     }

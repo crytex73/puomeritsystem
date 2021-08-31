@@ -87,10 +87,19 @@
                             </a>
                         </li>
                         <li class="sidebar-item 
-                        {{ Request::path() ==  'lecturer/compound' ? 'active' : ''  }}"">
+                        {{ Request::path() ==  'lecturer/compound' ? 'active' : ''  }}">
                             <a href="{{ route('lecturer.viewCompound') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>View Compounds</span>
+                            </a>
+                        </li>
+
+                        @elseif (Auth::user() && Auth::user()->is_hep)
+                        <li class="sidebar-item 
+                            {{ Request::path() ==  '/hep/register' ? 'active' : ''  }}">
+                            <a href="{{ route('hep.register') }}" class='sidebar-link'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Register User</span>
                             </a>
                         </li>
                         @endif

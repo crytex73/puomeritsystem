@@ -13,10 +13,13 @@ class Role {
 
     $isStudentUser = Auth::user()->is_student;
     $isLecturerUser = Auth::user()->is_lecturer;
+    $isHepUser = Auth::user()->is_hep;
 
     if($isStudentUser && $role == 'student')
         return $next($request);
     else if($isLecturerUser && $role == 'lecturer')
+        return $next($request);
+    else if($isHepUser && $role == 'hep')
         return $next($request);
 
     return redirect('/home');
