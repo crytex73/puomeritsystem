@@ -35,7 +35,7 @@ class CheckoutSessionCompletedJob implements ShouldQueue
      */
     public function handle()
     {
-        $SessionData = $this->webhookCall-payload['data']['object'];
+        $SessionData = $this->webhookCall->payload['data']['object'];
 
         $compound_id = intval($SessionData['metadata']['data_key']);
         $compound = Compound::find($compound_id);
