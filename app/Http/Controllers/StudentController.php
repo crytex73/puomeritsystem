@@ -14,7 +14,12 @@ class StudentController extends Controller
      */
     public function viewCompound(){
         $studData = Student::firstWhere('user_id', Auth::user()->id);
-        $compounds = Compound::firstWhere('student_id', $studData->id)->get();
+        $compounds = Compound::where('student_id', $studData->id);
+        if ($compounds){
+            $compounds = $compounds->get();
+        }else {
+            $compounds = [];
+        }
 
         return view('students.compound', compact('compounds'));
     }
