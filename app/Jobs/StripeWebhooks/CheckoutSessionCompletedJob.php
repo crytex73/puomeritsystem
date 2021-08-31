@@ -12,7 +12,7 @@ use Spatie\WebhookClient\Models\WebhookCall;
 use Illuminate\Support\Facades\Log;
 use App\Models\Compound;
 
-class ChargeSucceededJob implements ShouldQueue
+class CheckoutSessionCompletedJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -37,7 +37,7 @@ class ChargeSucceededJob implements ShouldQueue
     {
         $SessionData = $this->webhookCall-payload['data']['object'];
 
-        $compound_id = intval($SessionData['metada']['data_key']);
+        $compound_id = intval($SessionData['metadata']['data_key']);
         $compound = Compound::find($compound_id);
         $compound->payment_status = true;
         $compound->save();
