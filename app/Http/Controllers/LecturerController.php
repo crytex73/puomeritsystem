@@ -41,25 +41,25 @@ class LecturerController extends Controller
                 'ind' => 1,
                 'compound_type'   => 'Berpakaian Tidak Sopan',
                 'compound_value'  => 50.00,
-                'merit_deduction' => 2
+                'merit_deduction' => 5
             ),
             array(
                 'ind' => 2,
                 'compound_type'   => 'Berambut Panjang',
                 'compound_value'  => 50.00,
-                'merit_deduction' => 1
+                'merit_deduction' => 5
             ),
             array(
                 'ind' => 3,
                 'compound_type'   => 'Membuang Sampah Merata',
                 'compound_value'  => 50.00,
-                'merit_deduction' => 2
+                'merit_deduction' => 5
             ),
             array(
                 'ind' => 4,
                 'compound_type'   => 'Tidak Memakai Kad Pelajar',
                 'compound_value'  => 50.00,
-                'merit_deduction' => 1
+                'merit_deduction' => 5
             )
         );
 

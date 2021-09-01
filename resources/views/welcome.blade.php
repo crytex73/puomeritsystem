@@ -22,8 +22,8 @@
             @else
                 <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Login') }}</a>
                 @if (Route::has('register'))
-                    <!-- <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('HEP') }}</a> -->
-                    <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a>
+                    <a href="{{ route('login') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('HEP') }}</a>
+                    <!-- <a href="{{ route('register') }}" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Register') }}</a> -->
                 @endif
             @endauth
         </div>
@@ -37,10 +37,10 @@
                 </h1>
                 <ul class="flex flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
                     <li>
-                        <a href="http://cidos.edu.my" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Documentation">Cidos</a>
+                        <a href="http://cidos.edu.my" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Cidos">Cidos</a>
                     </li>
                     <li>
-                        <a href="http://ipuo.puo.edu.my/ipuo/" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Laracasts">Ipuo</a>
+                        <a href="http://ipuo.puo.edu.my/ipuo/" class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase" title="Ipuo">Ipuo</a>
                     </li>
                 </ul>
             </div>

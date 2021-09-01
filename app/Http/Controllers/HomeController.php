@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Compound;
 use App\Models\Lecturer;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -39,7 +40,8 @@ class HomeController extends Controller
             $settledCompoundCounts = Compound::where('student_id', $studData->id)->where('payment_status', true)->count();
             return view('home', compact('unsettledCompoundCounts', 'settledCompoundCounts', 'merit')); 
         }else{
-            return view('home');
+            $registerCounts = User::where('is_hep',false)->count();
+            return view('home', compact('registerCounts'));
         }
         
     }

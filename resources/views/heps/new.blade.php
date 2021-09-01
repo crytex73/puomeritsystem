@@ -43,7 +43,7 @@
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" id="email" name="email">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-calendar-event"></i>
+                                            <i class="bi bi-envelope"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" id="matric" name="matric">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-calendar-event"></i>
+                                            <i class="bi bi-person-check"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -65,12 +65,12 @@
                                     <div class="position-relative">
                                         <input type="password" class="form-control" placeholder="" id="pass" name="pass">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-calendar-event"></i>
+                                            <i class="bi bi-key"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <label>Please Select Your Role :</label>
+                            <label>Please Select Role :</label>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="roleopt" id="studentopt"
                                     value="student" required>
