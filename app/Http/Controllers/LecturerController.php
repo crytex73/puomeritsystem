@@ -21,7 +21,12 @@ class LecturerController extends Controller
      */
     public function viewCompound(){
         $lectData = Lecturer::firstWhere('user_id', Auth::user()->id);
-        $compounds = Compound::firstWhere('lecturer_id', $lectData->id)->get();
+        $compounds = Compound::where('lecturer_id', $lectData->id);
+        if ($compounds){
+            $compounds = $compounds->get();
+        }else {
+            $compounds = [];
+        }
 
         return view('lecturers.compound', compact('compounds'));
     }
