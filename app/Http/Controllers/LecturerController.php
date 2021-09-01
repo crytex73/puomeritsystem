@@ -38,33 +38,99 @@ class LecturerController extends Controller
         $compounds = array(
             array(
                 'ind' => 0,
-                'compound_type'   => 'Membuat Bising/Menganggu Kenteteraman',
-                'compound_value'  => 10.00,
-                'merit_deduction' => 1
+                'compound_type'   => 'Tidak memulangkan buku/bahan perpustakaan',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
             ),
             array(
                 'ind' => 1,
-                'compound_type'   => 'Berpakaian Tidak Sopan',
+                'compound_type'   => 'Merosakkan buku/bahan perpustakaan',
                 'compound_value'  => 50.00,
                 'merit_deduction' => 5
             ),
             array(
                 'ind' => 2,
-                'compound_type'   => 'Berambut Panjang',
-                'compound_value'  => 50.00,
-                'merit_deduction' => 5
+                'compound_type'   => 'Lewat memulangkan buku',
+                'compound_value'  => 10.00,
+                'merit_deduction' => 1
             ),
             array(
                 'ind' => 3,
-                'compound_type'   => 'Membuang Sampah Merata',
+                'compound_type'   => 'Membuat bising/ menganggu kenteteraman',
+                'compound_value'  => 10.00,
+                'merit_deduction' => 1
+            ),
+            array(
+                'ind' => 4,
+                'compound_type'   => 'Berpakaian tidak sopan',
                 'compound_value'  => 50.00,
                 'merit_deduction' => 5
             ),
             array(
-                'ind' => 4,
+                'ind' => 5,
+                'compound_type'   => 'Berpakaian tidak bersesuaian',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 6,
+                'compound_type'   => 'Berambut panjang/tidak kemas/diwarnakan',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 7,
+                'compound_type'   => 'Membuang sampah di merata-rata tempat',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 8,
+                'compound_type'   => 'Menconteng di mana-mana bahagian bangunan/premis',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 9,
+                'compound_type'   => 'Tidak menjaga kebersihan/kekemasan di mana-mana bahagian bangunan/premis',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 10,
+                'compound_type'   => 'Membuat sebarang bentuk bunyi/bising yang menyebabkan gangguan',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 11,
+                'compound_type'   => 'Menggunakan mana-mana bahagian bangunan/premis dalam kampus sebagai tempat tidur selain daripada kamsis',
+                'compound_value'  => 20.00,
+                'merit_deduction' => 2
+            ),
+            array(
+                'ind' => 12,
+                'compound_type'   => 'Tiada kad pelajar',
+                'compound_value'  => 50.00,
+                'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 13,
                 'compound_type'   => 'Tidak Memakai Kad Pelajar',
                 'compound_value'  => 50.00,
                 'merit_deduction' => 5
+            ),
+            array(
+                'ind' => 14,
+                'compound_type'   => 'Kad pelajar rosak atau conteng',
+                'compound_value'  => 30.00,
+                'merit_deduction' => 3
+            ),
+            array(
+                'ind' => 15,
+                'compound_type'   => 'Memakai kad pelajar di tempat yang tidak bersesuaian',
+                'compound_value'  => 20.00,
+                'merit_deduction' => 2
             )
         );
 

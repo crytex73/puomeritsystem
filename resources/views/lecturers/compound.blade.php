@@ -5,8 +5,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Compounds </h3>
-                <p class="text-subtitle text-muted">List of my students' compounds</p>
+                <h3>View Summons </h3>
+                <p class="text-subtitle text-muted">List of my student's summons.</p>
 
                 @if (request()->get('newCompoundSubmitted') && request()->get('newCompoundSubmitted') == 1)
                 <span class="badge bg-light-success mb-2">New compound has been created successfully!</span>
@@ -16,7 +16,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Compounds</li>
+                        <li class="breadcrumb-item active" aria-current="page">View Summons</li>
                     </ol>
                 </nav>
             </div>
@@ -24,18 +24,15 @@
     </div>
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                Compounds Datatable
-            </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>Bil</th>
                             <th>Matric Number</th>
-                            <th>Compound Reason</th>
+                            <th>Summon Reason</th>
                             <th>Value(RM)</th>
-                            <th>Date Of Compound</th>
+                            <th>Date Of Summon</th>
                             <th>Status</th>
                         </tr>
                     </thead>

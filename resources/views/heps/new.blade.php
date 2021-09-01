@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Register</h3>
-                <p class="text-subtitle text-muted">Register Student & Lecturer Here</p>
+                <p class="text-subtitle text-muted">Register student & lecturer here.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -32,7 +32,7 @@
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" id="name" name="name">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-app-indicator"></i>
+                                            <i class="bi bi-person"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" id="matric" name="matric">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-person-check"></i>
+                                            <i class="bi bi-card-heading"></i>
                                         </div>
                                     </div>
                                 </div>

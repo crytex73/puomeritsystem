@@ -90,7 +90,7 @@
                         {{ Request::path() ==  'lecturer/compound' ? 'active' : ''  }}">
                             <a href="{{ route('lecturer.viewCompound') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
-                                <span>View Compounds</span>
+                                <span>View Summons</span>
                             </a>
                         </li>
 
@@ -171,7 +171,7 @@
                     <!-- Lecturer Routes -->
                     @elseif (Auth::user() && Auth::user()->is_lecturer)
                     <a class="no-underline hover:underline" href="{{ route('lecturer.viewCompound') }}">Submit Compound</a>
-                    <a class="no-underline hover:underline" href="{{ route('lecturer.newCompound') }}">View Compound</a>
+                    <a class="no-underline hover:underline" href="{{ route('lecturer.newCompound') }}">View Summons</a>
                     @endif
                 </nav>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">

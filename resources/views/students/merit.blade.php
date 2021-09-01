@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
                 <h3>Submit Merit</h3>
-                <p class="text-subtitle text-muted">Up your merit point</p>
+                <p class="text-subtitle text-muted">Up your merit point.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -21,9 +21,6 @@
     </div>
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                Compound Datatable
-            </div>
             <div class="card-body">
                 <form class="form form-horizontal" method="POST" action="{{ route('student.submitMerit') }}" enctype="multipart/form-data">
                 @csrf

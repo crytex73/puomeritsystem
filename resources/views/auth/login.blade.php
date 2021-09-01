@@ -25,7 +25,7 @@
                 </a>
             </div>
             <h1 class="auth-title">Log in.</h1>
-            <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+            <p class="auth-subtitle mb-5">Log in with your data.</p>
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -65,7 +65,7 @@
     </div>
     <div class="col-lg-7 d-none d-lg-block">
         <div id="auth-right">
-
+            <img src="{{ asset('img/puodepan.jpg') }}" alt="puo" height="885" width="855" >
         </div>
     </div>
 </div>

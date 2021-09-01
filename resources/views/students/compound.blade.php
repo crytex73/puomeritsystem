@@ -5,14 +5,14 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Compounds </h3>
-                <p class="text-subtitle text-muted">List of my compounds</p>
+                <h3>Summons </h3>
+                <p class="text-subtitle text-muted">List of my summons.</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ url('/home') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Compounds</li>
+                        <li class="breadcrumb-item active" aria-current="page">Summons</li>
                     </ol>
                 </nav>
             </div>
@@ -20,17 +20,14 @@
     </div>
     <section class="section">
         <div class="card">
-            <div class="card-header">
-                Compounds Datatable
-            </div>
             <div class="card-body">
                 <table class="table table-striped" id="table1">
                     <thead>
                         <tr>
                             <th>Bil</th>
-                            <th>Compound Reason</th>
+                            <th>Summon Reason</th>
                             <th>Value(RM)</th>
-                            <th>Date Of Compound</th>
+                            <th>Date Of Summon</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
