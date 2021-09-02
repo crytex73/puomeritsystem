@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="text" id="matric_num" class="form-control"
-                                                name="matric_num" placeholder="01DDT19F1XXX">
+                                                name="matric_num" placeholder="01DDT19F1XXX" required="">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Type Of Summon</label>
@@ -47,27 +47,27 @@
                                                 <option value="{{ $compound['ind'] }}">{{ $compound['compound_type'] }}</option>
                                                 @endforeach
                                             </select>
-                                            <input type="hidden" id="comp_reason" name="comp_reason">
+                                            <input type="hidden" id="comp_reason" name="comp_reason" required="">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Summon Value (RM)</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="number" id="comp_value" class="form-control"
-                                                name="comp_value" placeholder="0.00">
+                                                name="comp_value" placeholder="0.00" required="">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Merit Deduction</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="number" id="merit_deduction" class="form-control"
-                                                name="merit_deduction" placeholder="0">
+                                                name="merit_deduction" placeholder="0" required="">
                                         </div>
                                         <div class="col-md-4">
                                             <label>Upload Compound File (Proof)</label>
                                         </div>
                                         <div class="col-md-8 form-group">
-                                            <input class="form-control" type="file" id="proof_file" name="proof_file">
+                                            <input class="form-control" type="file" id="proof_file" name="proof_file" required="">
                                         </div>
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <button type="submit"

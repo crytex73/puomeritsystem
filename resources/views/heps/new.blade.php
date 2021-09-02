@@ -30,7 +30,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="name">Full Name</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="" id="name" name="name">
+                                        <input type="text" class="form-control" placeholder="" id="name" name="name" required="">
                                         <div class="form-control-icon">
                                             <i class="bi bi-person"></i>
                                         </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="email">Email</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="" id="email" name="email">
+                                        <input type="text" class="form-control" placeholder="" id="email" name="email" required="">
                                         <div class="form-control-icon">
                                             <i class="bi bi-envelope"></i>
                                         </div>
@@ -52,7 +52,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="matric">Matric Number</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="" id="matric" name="matric">
+                                        <input type="text" class="form-control" placeholder="" id="matric" name="matric" required="">
                                         <div class="form-control-icon">
                                             <i class="bi bi-card-heading"></i>
                                         </div>
@@ -63,7 +63,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="pass">Password</label>
                                     <div class="position-relative">
-                                        <input type="password" class="form-control" placeholder="" id="pass" name="pass">
+                                        <input type="password" class="form-control" placeholder="" id="pass" name="pass" required="">
                                         <div class="form-control-icon">
                                             <i class="bi bi-key"></i>
                                         </div>
