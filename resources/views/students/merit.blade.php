@@ -43,7 +43,19 @@
                                 <div class="form-group has-icon-left">
                                     <label for="edate">Event Date</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="dd/mm/yy" id="edate">
+                                        <input type="text" class="form-control" placeholder="dd/mm/yy" name="edate" id="edate">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+
+                                <div class="form-group has-icon-left">
+                                    <label for="edate">Lecturer Matric Number</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" placeholder="" name="lectmatricnumber" id="lectmatricnumber">
                                         <div class="form-control-icon">
                                             <i class="bi bi-calendar-event"></i>
                                         </div>

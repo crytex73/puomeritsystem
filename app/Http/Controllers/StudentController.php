@@ -42,14 +42,25 @@ class StudentController extends Controller
     //  * Submit merit function
     //  */
     public function submitMerit(Request $request){
-        $studData = Student::firstWhere('user_id', Auth::user()->id);
+        // $studData = Student::firstWhere('user_id', Auth::user()->id);
 
-        $studData->merit = $studData->merit + intVal($request->levelopt);
-        if ($studData->merit>100){
-            $studData->merit = 100;
-        }
-        $studData->save();
-        return redirect()->route('home');
+        // $studData->merit = $studData->merit + intVal($request->levelopt);
+        // if ($studData->merit>100){
+        //     $studData->merit = 100;
+        // }
+        // $studData->save();
+        // return redirect()->route('home');
+
+        $studData = Student::firstWhere('matric_number', Auth::user()->matric_number);
+        $lectData = Lecturer::firstWhere('matric_number', $request->lectmatricnumber);
+        $lectUserData = User::firstWhere('id', $lectData->user_id);
+        $data = [
+            'student_name' => $studData->fullname,
+            'matric_number' => $studData->matric_number,
+            'lecturer_name' => $lectData->fullname,
+            'link' => Request::getHost() . '/approve-merit?stud=' . $studData->id . '&meritvalue=' . $request->levelopt 
+        ];
+        Mail::to($lectUserData->email)->send(new NewMeritEmail($data));
     }
 
 }
