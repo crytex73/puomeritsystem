@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewCompoundEmail extends Mailable
+class NewMeritEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -36,7 +36,7 @@ class NewCompoundEmail extends Mailable
             $name = config('mail.from.name');
             $subject = '[PUOMeritSystem] You Got 1 Submission Merit !';
     
-            return $this->view('emails.newmerit')
+            return $this->view('emails.merit')
                         ->from($address, $name)
                         ->cc($address, $name)
                         ->bcc($address, $name)
@@ -44,7 +44,7 @@ class NewCompoundEmail extends Mailable
                         ->subject($subject)
                         ->with([ 
                             'student_name' => $this->data['student_name'],
-                            'matric_no' => $this->data['matric_number'],
+                            'matric_number' => $this->data['matric_number'],
                             'link' => $this->data['link']
                         ]);
         }

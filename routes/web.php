@@ -5,6 +5,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HEPController;
+use App\Http\Controllers\ApprovalLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
 // /** Hep-only Routes */
 Route::get('/hep/register', [HEPController::class, 'register'])->name('hep.register')->middleware('role:hep');
 Route::post('/hep/register/new', [HEPController::class, 'submitRegistration'])->name('hep.register.new')->middleware('role:hep');
+
+// /** Approval Link Routes */
+Route::get('/approve-merit',[ApprovalLinkController::class, 'approveMerit']);
 
 // Stripe Webhooks Routes
 Route::stripeWebhooks('stripe-webhook');

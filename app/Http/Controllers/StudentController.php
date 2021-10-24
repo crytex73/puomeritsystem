@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Compound;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Lecturer;
+use App\Models\User;
+use App\Mail\NewMeritEmail;
 
 class StudentController extends Controller
 {
@@ -51,16 +55,17 @@ class StudentController extends Controller
         // $studData->save();
         // return redirect()->route('home');
 
-        $studData = Student::firstWhere('matric_number', Auth::user()->matric_number);
+        $studData = Student::firstWhere('user_id', Auth::user()->id);
         $lectData = Lecturer::firstWhere('matric_number', $request->lectmatricnumber);
         $lectUserData = User::firstWhere('id', $lectData->user_id);
         $data = [
             'student_name' => $studData->fullname,
             'matric_number' => $studData->matric_number,
-            'lecturer_name' => $lectData->fullname,
-            'link' => Request::getHost() . '/approve-merit?stud=' . $studData->id . '&meritvalue=' . $request->levelopt 
+            'link' => url('/') . '/approve-merit?stud=' . $studData->id . '&meritvalue=' . $request->levelopt 
         ];
         Mail::to($lectUserData->email)->send(new NewMeritEmail($data));
+
+        return redirect()->route('student.viewMerit', ['meritSubmitted'=> true]);
     }
 
 }
