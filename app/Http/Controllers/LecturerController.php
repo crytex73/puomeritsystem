@@ -174,6 +174,7 @@ class LecturerController extends Controller
             'student_name' => $studData->fullname,
             'compound_reason' => $compound->comp_reason,
             'compound_value' => 'RM' . number_format((float)$compound->comp_value, 2, '.', ''),
+            'merit_deduction' => $compound->merit_deduction,
             'lecturer_name' => $lectData->fullname
         ];
         Mail::to($studUser->email)->send(new NewCompoundEmail($data));

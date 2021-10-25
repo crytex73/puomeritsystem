@@ -46,6 +46,7 @@ class NewCompoundEmail extends Mailable
                             'student_name' => $this->data['student_name'],
                             'compound_reason' => $this->data['compound_reason'],
                             'compound_value' => $this->data['compound_value'],
+                            'merit_deduction' => $this->data['merit_deduction'],
                             'lecturer_name' => $this->data['lecturer_name']
                         ]);
         }

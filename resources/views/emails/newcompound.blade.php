@@ -8,6 +8,7 @@
     <ul>
         <li>Reason : {{ $compound_reason }}</li>
         <li>Value : {{ $compound_value }}</li>
+        <li>Merit Deduction : {{ $merit_deduction }}</li>
         <li>By : {{ $lecturer_name }}</li>
     </ul>
   </body>
