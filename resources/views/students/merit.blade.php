@@ -33,8 +33,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="ename">Event Name</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="e.g. : Gotong Royong"
-                                            id="ename">
+                                        <input type="text" class="form-control" placeholder="e.g. : Gotong Royong" name="ename" id="ename">
                                         <div class="form-control-icon">
                                             <i class="bi bi-app-indicator"></i>
                                         </div>
@@ -60,7 +59,7 @@
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" name="lectmatricnumber" id="lectmatricnumber">
                                         <div class="form-control-icon">
-                                            <i class="bi bi-calendar-event"></i>
+                                            <i class="bi bi-card-heading"></i>
                                         </div>
                                     </div>
                                 </div>

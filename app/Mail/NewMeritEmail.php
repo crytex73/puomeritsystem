@@ -45,6 +45,7 @@ class NewMeritEmail extends Mailable
                         ->with([ 
                             'student_name' => $this->data['student_name'],
                             'matric_number' => $this->data['matric_number'],
+                            'event_name' => $this->data['event_name'],
                             'link' => $this->data['link']
                         ]);
         }

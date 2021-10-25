@@ -8,6 +8,7 @@
     <ul>
         <li>Student Name : {{ $student_name }}</li>
         <li>Matric No : {{ $matric_number }}</li>
+        <li>Event Name : {{ $event_name }}</li>
         <li>To Approve Please Click Here : {{ $link }}</li>
     </ul>
   </body>

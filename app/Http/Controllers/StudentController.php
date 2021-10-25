@@ -61,7 +61,8 @@ class StudentController extends Controller
         $data = [
             'student_name' => $studData->fullname,
             'matric_number' => $studData->matric_number,
-            'link' => url('/') . '/approve-merit?stud=' . $studData->id . '&meritvalue=' . $request->levelopt 
+            'event_name' => $request->ename,
+            'link' => url('/') . '/approve-merit?stud=' . $studData->id . '&meritvalue=' . $request->levelopt . '&eventname=' . $request->ename
         ];
         Mail::to($lectUserData->email)->send(new NewMeritEmail($data));
 
