@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-<title>PUO MERIT SYSTEMS</title>
+<title>PUO Merit System</title>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
 
 	<div class="main-content">
 		<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
-		<p class="main-content__body" data-lead-id="main-content-body">Thanks, Merit Has Been Approved.</p>
+		<p class="main-content__body" data-lead-id="main-content-body">Merit Has Been Approved.</p>
 	</div>
 
 	<footer class="site-footer" id="footer">
