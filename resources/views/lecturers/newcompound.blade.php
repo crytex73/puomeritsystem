@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
+<style>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
 @section('content')
 <div class="page-heading">
     <div class="page-title">
@@ -54,14 +66,14 @@
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="number" id="comp_value" class="form-control"
-                                                name="comp_value" placeholder="0.00" required="">
+                                                name="comp_value" placeholder="0.00" required="" readonly>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Merit Deduction</label>
                                         </div>
                                         <div class="col-md-8 form-group">
                                             <input type="number" id="merit_deduction" class="form-control"
-                                                name="merit_deduction" placeholder="0" required="">
+                                                name="merit_deduction" placeholder="0" required="" readonly>
                                         </div>
                                         <div class="col-md-4">
                                             <label>Upload Compound File (Proof)</label>

@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <h2>Hi, {{ $student_name }} just submit 1 merit.</h2>
+    <h2>Hi, {{ $student_name }} Just Submit 1 Merit.</h2>
     <ul>
         <li>Student Name : {{ $student_name }}</li>
-        <li>Matric No : {{ $matric_number }}</li>
+        <li>Matric Number : {{ $matric_number }}</li>
         <li>Event Name : {{ $event_name }}</li>
         <li>To Approve Please Click Here : {{ $link }}</li>
     </ul>

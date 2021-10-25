@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <h2>Hi, {{ $student_name }} you just got 1 compound.</h2>
+    <h2>Hi, {{ $student_name }} You Just Got 1 Summon.</h2>
     <ul>
         <li>Reason : {{ $compound_reason }}</li>
         <li>Value : {{ $compound_value }}</li>
