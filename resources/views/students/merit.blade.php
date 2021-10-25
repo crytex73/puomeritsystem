@@ -55,7 +55,7 @@
                             <div class="col-12">
 
                                 <div class="form-group has-icon-left">
-                                    <label for="edate">Lecturer Matric Number</label>
+                                    <label for="edate">Lecturer Matric Number (Lecturer In Charge)</label>
                                     <div class="position-relative">
                                         <input type="text" class="form-control" placeholder="" name="lectmatricnumber" id="lectmatricnumber">
                                         <div class="form-control-icon">
