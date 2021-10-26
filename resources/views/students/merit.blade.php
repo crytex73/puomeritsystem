@@ -33,7 +33,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="ename">Event Name</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="e.g. : Gotong Royong" name="ename" id="ename">
+                                        <input type="text" class="form-control" placeholder="e.g. : Gotong Royong" name="ename" id="ename" required>
                                         <div class="form-control-icon">
                                             <i class="bi bi-app-indicator"></i>
                                         </div>
@@ -45,7 +45,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="edate">Event Date</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="dd/mm/yy" name="edate" id="edate">
+                                        <input type="text" class="form-control" placeholder="dd/mm/yy" name="edate" id="edate" required>
                                         <div class="form-control-icon">
                                             <i class="bi bi-calendar-event"></i>
                                         </div>
@@ -57,7 +57,7 @@
                                 <div class="form-group has-icon-left">
                                     <label for="edate">Lecturer Matric Number (Lecturer In Charge)</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" placeholder="" name="lectmatricnumber" id="lectmatricnumber">
+                                        <input type="text" class="form-control" placeholder="" name="lectmatricnumber" id="lectmatricnumber" required>
                                         <div class="form-control-icon">
                                             <i class="bi bi-card-heading"></i>
                                         </div>
